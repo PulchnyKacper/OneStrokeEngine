@@ -4,6 +4,8 @@
 #include <glm/glm.hpp>
 #include "ose_device.h"
 #include <vector>
+#include <stdexcept>
+
 
 namespace ose {
 
@@ -32,11 +34,13 @@ namespace ose {
 
 		void bind(VkCommandBuffer commandBuffer);
 		void draw(VkCommandBuffer commandBuffer);
+		void createTextureImage();
 
 	private:
 
 		void createVertexBuffers(const std::vector<Vertex> &vertices);
 		void createIndexBuffers(const std::vector<uint32_t>	&indicse);
+
 
 		bool hasIndexBuffer = false;
 		OseDevice& oseDevice;
